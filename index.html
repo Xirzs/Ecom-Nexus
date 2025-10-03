@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-</style>
     <title>EcomNexus - Digital Marketing Excellence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -15,94 +15,170 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: 'Montserrat', sans-serif;
             color: #333;
             overflow-x: hidden;
         }
 
-     /* Navbar */
-nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    padding: 25px 120px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1000;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
-}
+        /* Consistent Container System */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-nav.scrolled {
-    background: rgba(255, 255, 255, 0.98);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-}
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 60px;
+            }
+        }
 
-.logo {
-    font-size: 26px;
-    font-weight: 800;
-    color: white;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
+        @media (min-width: 1024px) {
+            .container {
+                padding: 0 60px;
+            }
+        }
 
-nav.scrolled .logo {
-    color: #1a1a1a;
-}
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
 
-.nav-links {
-    display: flex;
-    gap: 30px;
-    align-items: center;
-}
+        nav.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
 
-.nav-links a {
-    text-decoration: none;
-    color: white;
-   
-    font-weight: 500;
-    font-size: 16px;
-    position: relative;
-    transition: color 0.3s ease;
-}
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -4px;
-    left: 0;
-    background-color: #00D9A3;
-    transition: width 0.3s ease;
-}
+        @media (min-width: 768px) {
+            .nav-container {
+                padding: 25px 60px;
+            }
+        }
 
-.nav-links a:hover::after,
-.nav-links a.active::after {
-    width: 100%;
-}
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            color: white;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
 
-.nav-links a:hover {
-    color: #00D9A3;
-}
+        @media (min-width: 768px) {
+            .logo {
+                font-size: 26px;
+            }
+        }
 
-nav.scrolled .nav-links a {
-    color: #333;
-}
+        nav.scrolled .logo {
+            color: #1a1a1a;
+        }
 
-/* Responsive */
-@media (max-width: 768px) {
-    nav {
-        padding: 15px 30px;
-    }
+        .nav-links {
+            display: none;
+            gap: 30px;
+            align-items: center;
+        }
 
-    .nav-links {
-        gap: 20px;
-    }
-}
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+            }
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            font-size: 16px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #00D9A3;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: #00D9A3;
+        }
+
+        nav.scrolled .nav-links a {
+            color: #333;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: block;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        @media (min-width: 768px) {
+            .mobile-menu-btn {
+                display: none;
+            }
+        }
+
+        nav.scrolled .mobile-menu-btn {
+            color: #1a1a1a;
+        }
+
+        .mobile-menu {
+            display: none;
+            padding: 20px 0;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 12px 0;
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav.scrolled .mobile-menu a {
+            color: #333;
+        }
+
+        .mobile-menu a:hover {
+            color: #00D9A3;
+        }
 
         /* Hero Section */
         .hero {
@@ -139,12 +215,26 @@ nav.scrolled .nav-links a {
             z-index: 2;
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 60px;
+            padding: 0 20px;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            grid-template-columns: 1fr;
+            gap: 40px;
             align-items: center;
             width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .hero-container {
+                padding: 0 60px;
+                gap: 50px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr 1fr;
+                gap: 60px;
+            }
         }
 
         .hero-content {
@@ -152,50 +242,90 @@ nav.scrolled .nav-links a {
         }
 
         .hero-tag {
-                font-family: "Montserrat", sans-serif;
-
-            font-size: 14px;
-            letter-spacing: 3px;
+            font-size: 12px;
+            letter-spacing: 2px;
             color: rgba(255, 255, 255, 0.9);
             margin-bottom: 20px;
             font-weight: 600;
         }
 
-        .hero h1 {
-                font-family: "Montserrat", sans-serif;
+        @media (min-width: 768px) {
+            .hero-tag {
+                font-size: 14px;
+                letter-spacing: 3px;
+            }
+        }
 
-            font-size: 64px;
+        .hero h1 {
+            font-size: 32px;
             font-weight: 900;
             line-height: 1.1;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .hero h1 {
+                font-size: 48px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero h1 {
+                font-size: 64px;
+                margin-bottom: 24px;
+            }
         }
 
         .hero-description {
-                font-family: "Montserrat", sans-serif;
-
-            font-size: 18px;
+            font-size: 16px;
             line-height: 1.6;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             color: rgba(255, 255, 255, 0.95);
         }
 
+        @media (min-width: 768px) {
+            .hero-description {
+                font-size: 18px;
+                margin-bottom: 40px;
+            }
+        }
+
         .hero-buttons {
-            
             display: flex;
-            gap: 20px;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        @media (min-width: 640px) {
+            .hero-buttons {
+                flex-direction: row;
+                gap: 20px;
+            }
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 14px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        @media (min-width: 768px) {
+            .btn-primary, .btn-secondary {
+                padding: 16px 36px;
+                font-size: 16px;
+            }
         }
 
         .btn-primary {
             background: #1a1a1a;
             color: white;
-            padding: 16px 36px;
-            border-radius: 30px;
-            text-decoration: none;
-                font-family: "Montserrat", sans-serif;
-
-            font-weight: 700;
-            transition: all 0.3s ease;
-            display: inline-block;
         }
 
         .btn-primary:hover {
@@ -207,12 +337,6 @@ nav.scrolled .nav-links a {
         .btn-secondary {
             background: white;
             color: #1a1a1a;
-            padding: 16px 36px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            display: inline-block;
         }
 
         .btn-secondary:hover {
@@ -226,7 +350,19 @@ nav.scrolled .nav-links a {
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            height: 500px;
+            height: 300px;
+        }
+
+        @media (min-width: 768px) {
+            .hero-image {
+                height: 400px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-image {
+                height: 500px;
+            }
         }
 
         .hero-image img {
@@ -234,661 +370,909 @@ nav.scrolled .nav-links a {
             height: 100%;
             object-fit: cover;
         }
-/* Apply Montserrat to the entire about section */
-.about-section {
-    padding: 100px 60px;
-    background: linear-gradient(135deg, #d4f5f0 0%, #e8f8f5 100%);
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
-}
 
-.about-heading {
-    font-size: 44px;
-    font-weight: 900;
-    margin-bottom: 20px;
-    color: #1a1a1a;
-    line-height: 1.2;
-    font-family: 'Montserrat', sans-serif;
-}
+        /* About Section */
+        .about-section {
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #d4f5f0 0%, #e8f8f5 100%);
+            text-align: center;
+        }
 
-.about-subheading {
-    font-size: 20px;
-    color: #666;
-    margin-bottom: 40px;
-    line-height: 1.6;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    font-family: 'Montserrat', sans-serif;
-}
+        @media (min-width: 768px) {
+            .about-section {
+                padding: 80px 60px;
+            }
+        }
 
-.about-buttons {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    margin-bottom: 80px;
-    font-family: 'Montserrat', sans-serif;
-}
+        @media (min-width: 1024px) {
+            .about-section {
+                padding: 100px 60px;
+            }
+        }
 
-.about-dreamscape {
-    margin-top: 80px;
-    padding: 60px 40px;
-    background: #fff;
-    border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-    font-family: 'Montserrat', sans-serif;
-}
+        .about-section .container {
+            max-width: 1400px;
+        }
 
-.dreamscape-title {
-    color: #00D9A3;
-    font-size: 18px;
-    letter-spacing: 10.8px;
-    margin-bottom: 30px;
-    font-weight: 700;
-    font-family: 'Montserrat', sans-serif;
-}
+        .about-heading {
+            font-size: 32px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+            line-height: 1.2;
+        }
 
-.dreamscape-heading {
-    font-size: 36px;
-    font-weight: 800;
-    margin-bottom: 20px;
-    color: #1a1a1a;
-    line-height: 1.3;
-    font-family: 'Montserrat', sans-serif;
-}
+        @media (min-width: 768px) {
+            .about-heading {
+                font-size: 44px;
+            }
+        }
 
-.dreamscape-vision {
-    font-size: 18px;
-    color: #444;
-    margin-bottom: 50px;
-    font-family: 'Montserrat', sans-serif;
-}
+        .about-subheading {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-    max-width: 1000px;
-    margin: 0 auto;
-    font-family: 'Montserrat', sans-serif;
-}
+        @media (min-width: 768px) {
+            .about-subheading {
+                font-size: 20px;
+                margin-bottom: 40px;
+            }
+        }
 
-.stat-number {
-    font-size: 48px;
-    font-weight: 900;
-    background: linear-gradient(135deg, #00D9A3 0%, #1a3a3a 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 10px;
-    font-family: 'Montserrat', sans-serif;
-}
+        .about-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 60px;
+        }
 
-.stat-label {
-    font-size: 16px;
-    color: #666;
-    font-weight: 500;
-    font-family: 'Montserrat', sans-serif;
-}
+        @media (min-width: 640px) {
+            .about-buttons {
+                flex-direction: row;
+                gap: 20px;
+                margin-bottom: 80px;
+            }
+        }
 
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-    .stats-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
+        .btn-green {
+            background: #00D9A3;
+            color: white;
+            padding: 14px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+        }
 
-    .about-heading {
-        font-size: 32px;
-    }
+        @media (min-width: 768px) {
+            .btn-green {
+                padding: 16px 36px;
+            }
+        }
 
-    .dreamscape-heading {
-        font-size: 28px;
-    }
-}
+        .btn-green:hover {
+            background: #00c090;
+            transform: translateY(-3px);
+        }
 
+        .btn-outline-green {
+            border: 2px solid #00D9A3;
+            background: transparent;
+            color: #00D9A3;
+            padding: 14px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            display: inline-block;
+            cursor: pointer;
+        }
 
+        @media (min-width: 768px) {
+            .btn-outline-green {
+                padding: 14px 34px;
+            }
+        }
+
+        .btn-outline-green:hover {
+            background: #00D9A3;
+            color: white;
+        }
+
+        .about-dreamscape {
+            margin-top: 60px;
+            padding: 40px 30px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+
+        @media (min-width: 768px) {
+            .about-dreamscape {
+                margin-top: 80px;
+                padding: 60px 40px;
+            }
+        }
+
+        .dreamscape-title {
+            color: #00D9A3;
+            font-size: 14px;
+            letter-spacing: 6px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        @media (min-width: 768px) {
+            .dreamscape-title {
+                font-size: 18px;
+                letter-spacing: 10.8px;
+                margin-bottom: 30px;
+            }
+        }
+
+        .dreamscape-heading {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+            line-height: 1.3;
+        }
+
+        @media (min-width: 768px) {
+            .dreamscape-heading {
+                font-size: 36px;
+            }
+        }
+
+        .dreamscape-vision {
+            font-size: 16px;
+            color: #444;
+            margin-bottom: 40px;
+        }
+
+        @media (min-width: 768px) {
+            .dreamscape-vision {
+                font-size: 18px;
+                margin-bottom: 50px;
+            }
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 40px;
+            }
+        }
+
+        .stat-number {
+            font-size: 40px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #00D9A3 0%, #1a3a3a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        @media (min-width: 768px) {
+            .stat-number {
+                font-size: 48px;
+            }
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #666;
+            font-weight: 500;
+        }
+
+        @media (min-width: 768px) {
+            .stat-label {
+                font-size: 16px;
+            }
+        }
 
         /* Clients Section */
-       .clients-section {
-    padding: 80px 60px;
-    background: #f8f9fa;
-    text-align: center;
-}
-
-.section-title {
-    font-family: "Montserrat", sans-serif;
-    color: #00D9A3;
-    font-size: 16px;
-    letter-spacing: 4px;
-    margin-bottom: 10px;
-    font-weight: 700;
-}
-
-.clients-heading {
-    font-family: "Montserrat", sans-serif;
-    font-size: 48px;
-    font-weight: 900;
-    margin-bottom: 60px;
-    color: rgb(29, 29, 29);
-}
-
-/* Each row container */
-.clients-slider {
-    overflow: hidden;
-    margin-bottom: 40px;
-}
-
-/* Track that scrolls */
-.clients-track {
-    display: flex;
-    width: max-content;
-    animation: scrollLeft 12s linear infinite;
-}
-
-.clients-track.reverse {
-    animation: scrollRight 14s linear infinite;
-}
-
-.client-logo {
-    min-width: 180px;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 30px;
-    opacity: 0.7;
-    filter: grayscale(100%);
-    font-family: "Montserrat", sans-serif;
-    font-size: 20px;
-    font-weight: 700;
-    color: #333;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.client-logo:hover {
-    opacity: 1;
-    filter: grayscale(0%);
-    transform: scale(1.05);
-}
-
-/* Animations */
-@keyframes scrollLeft {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
-
-@keyframes scrollRight {
-    0% { transform: translateX(-50%); }
-    100% { transform: translateX(0); }
-}
-
-
-       /* Success Stories Section */
-.success-stories {
-    background: #0a1f1f;
-    padding: 100px 20px;
-    text-align: center;
-    color: #fff;
-}
-
-.success-stories .section-title {
-    font-family: "Montserrat", sans-serif;
-    color: #00D9A3;
-    font-size: 14px;
-    letter-spacing: 3px;
-    margin-bottom: 12px;
-    text-transform: uppercase;
-    font-weight: 600;
-}
-
-.success-stories .section-heading {
-    font-family: "Montserrat", sans-serif;
-    font-size: 40px;
-    font-weight: 700;
-    margin-bottom: 20px;
-}
-
-.success-stories .section-subtext {
-    font-family: "Montserrat", sans-serif;
-    font-size: 18px;
-    color: rgba(255,255,255,0.7);
-    max-width: 750px;
-    margin: 0 auto 50px auto;
-    line-height: 1.6;
-}
-
-/* Grid Layout */
-.stories-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
-}
-
-/* Story Card */
-.story-card {
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: 16px;
-    overflow: hidden;
-    text-align: left;
-    transition: all 0.35s ease;
-    cursor: pointer;
-}
-
-.story-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.35);
-}
-
-/* Story Image */
-.story-image {
-    height: 220px;
-    overflow: hidden;
-}
-
-.story-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.story-card:hover .story-image img {
-    transform: scale(1.08);
-}
-
-/* Story Content */
-.story-content {
-    padding: 25px;
-}
-
-.story-tag {
-    display: inline-block;
-    padding: 6px 12px;
-    border-radius: 20px;
-    background: rgba(0,217,163,0.15);
-    color: #00D9A3;
-    font-family: "Montserrat", sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-}
-
-.story-content h3 {
-        font-family: "Montserrat", sans-serif;
-
-    font-size: 20px;
-    margin-bottom: 12px;
-    font-weight: 600;
-    color: #fff;
-}
-
-.story-content p {
-    font-family: "Montserrat", sans-serif;
-    font-size: 15px;
-    color: rgba(255,255,255,0.75);
-    line-height: 1.6;
-}
-    /* Shared container for all sections */
-.section-container {
-    max-width: 1100px;  /* keeps cards nicely centered */
-    margin: 0 auto;     /* centers in page */
-    padding: 0 20px;    /* small padding on sides for mobile */
-}
-
-     /* Services Section */
-.services-section {
-    background: #0a1f1f;
-    padding: 100px 20px;
-    text-align: center;
-    color: #fff;
-}
-
-.services-section .section-title {
-        font-family: "Montserrat", sans-serif;
-
-    color: #00D9A3;
-    font-size: 14px;
-    letter-spacing: 3px;
-    margin-bottom: 12px;
-    text-transform: uppercase;
-    font-weight: 600;
-}
-
-.services-section .section-heading {
-        font-family: "Montserrat", sans-serif;
-
-    font-size: 40px;
-    font-weight: 700;
-    margin-bottom: 20px;
-    color: #fff;
-    line-height: 1.2;
-}
-
-.services-section p {
-        font-family: "Montserrat", sans-serif;
-
-    font-size: 18px;
-    color: rgba(255,255,255,0.75);
-    line-height: 1.6;
-    max-width: 750px;
-    margin: 0 auto 50px auto;
-}
-
-/* Grid Layout */
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-top: 60px;
-}
-
-/* Service Card */
-.service-card {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
-    padding: 40px 30px;
-    text-align: left;
-    transition: all 0.35s ease;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-}
-
-.service-card:hover {
-    transform: translateY(-8px);
-    border-color: #00D9A3;
-    background: rgba(0, 217, 163, 0.05);
-}
-
-/* Smooth reveal animation on load */
-.service-card {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.6s ease forwards;
-}
-.service-card:nth-child(2) { animation-delay: 0.2s; }
-.service-card:nth-child(3) { animation-delay: 0.4s; }
-
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Service Icon */
-.service-icon {
-    font-size: 34px;
-    margin-bottom: 18px;
-    color: #00D9A3;
-}
-
-/* Service Title */
-.service-card h3 {
-    font-family: "Montserrat", sans-serif;
-    font-size: 20px;
-    margin-bottom: 12px;
-    color: #fff;
-    font-weight: 600;
-}
-
-/* Service Description */
-.service-card p {
-    font-family: "Montserrat", sans-serif;
-    font-size: 15px;
-    line-height: 1.6;
-    color: rgba(255,255,255,0.7);
-}
-
-/* Arrow (top-right) */
-.service-arrow {
-    position: absolute;
-    top: 22px;
-    right: 22px;
-    font-size: 18px;
-    color: rgba(255,255,255,0.4);
-    transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.service-card:hover .service-arrow {
-    color: #00D9A3;
-    transform: translateX(4px);
-}
-
-    /* Our Team Section */
-    /* Our Team Section */
-.our-team {
-    background: #ffffff; /* White background */
-    padding: 100px 20px;
-    text-align: center;
-    color: #222;
-}
-
-.our-team .section-title {
-    font-family: "Montserrat", sans-serif;
-    color: #00D9A3;
-    font-size: 14px;
-    letter-spacing: 3px;
-    margin-bottom: 12px;
-    text-transform: uppercase;
-    font-weight: 600;
-}
-
-.our-team .section-heading {
-    font-family: "Montserrat", sans-serif;
-    font-size: 36px;
-    font-weight: 700;
-    margin-bottom: 15px;
-    color: #111;
-}
-
-.our-team .section-subtext {
-    font-family: "Montserrat", sans-serif;
-    font-size: 17px;
-    color: #555;
-    max-width: 750px;
-    margin: 0 auto 60px auto;
-    line-height: 1.6;
-}
-
-/* Grid */
-.team-grid {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-}
-
-/* Card */
-.team-card {
-    background: #fff;
-    padding: 25px;
-    border-radius: 12px;
-    max-width: 260px;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.team-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
-}
-
-/* Photo */
-.team-photo {
-    width: 100%;
-    height: 280px;
-    margin-bottom: 20px;
-    overflow: hidden;
-    border-radius: 8px;
-}
-
-.team-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s ease;
-}
-
-.team-card:hover .team-photo img {
-    transform: scale(1.05);
-}
-
-/* Name */
-.team-card h3 {
-    font-family: "Montserrat", sans-serif;
-    font-size: 20px;
-    margin-bottom: 8px;
-    font-weight: 600;
-    color: #111;
-}
-
-/* Role */
-.team-card .role {
-    font-family: "Montserrat", sans-serif;
-    font-size: 15px;
-    color: #666;
-    font-weight: 400;
-}
-
-    .footer-dark {
-  background: #111;
-  color: #ddd;
-  padding: 50px 20px 30px;
-  font-family: "Montserrat", sans-serif;
-}
-
-.footer-container {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 40px;
-}
-
-/* Brand */
-.footer-brand h2 {
-    font-family: "Montserrat", sans-serif;
-  color: #00D9A3;
-  font-size: 26px;
-  margin-bottom: 10px;
-  font-weight: 800;
-}
-
-.footer-brand p {
-    font-family: "Montserrat", sans-serif;
-
-  font-size: 14px;
-  color: #aaa;
-  margin: 0;
-}
-
-/* Links */
-.footer-links h3 {
-        font-family: "Montserrat", sans-serif;
-
-  font-size: 18px;
-  margin-bottom: 15px;
-  color: #fff;
-}
-
-.footer-links ul {
-
-  display: flex;
-  flex-direction: row; /* horizontal layout */
-  gap: 20px;
-  padding: 0;
-  margin: 0;
-}
-
-
-.footer-links ul li a {
-  text-decoration: none;
-  color: #ccc;
-  font-size: 15px;
-      font-family: "Montserrat", sans-serif;
-
-  transition: all 0.3s;
-  position: relative;
-}
-
-.footer-links ul li a::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  left: 0;
-  bottom: -3px;
-  background: #00D9A3;
-  transition: width 0.3s;
-}
-
-.footer-links ul li a:hover::after {
-  width: 100%;
-  color: #00D9A3;
-}
-
-/* Social */
-.footer-social h3 {
-  font-size: 18px;
-  margin-bottom: 15px;
-  color: #fff;
-}
-
-.footer-social .social-icons a {
-  color: #ccc;
-  font-size: 20px;
-  margin-right: 18px;
-  transition: all 0.3s;
-}
-
-.footer-social .social-icons a:hover {
-  color: #00D9A3;
-  transform: scale(1.1);
-}
-
-/* Footer Bottom */
-.footer-bottom {
-  text-align: center;
-  margin-top: 30px;
-  color: #777;
-}
-
-.footer-bottom hr {
-  border-color: #333;
-  margin-bottom: 10px;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .footer-links ul {
-    flex-direction: column; /* vertical on small screens */
-    gap: 10px;
-    text-align: center;
-  }
-}
-
-
-
-
+        .clients-section {
+            padding: 60px 20px;
+            background: #f8f9fa;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        @media (min-width: 768px) {
+            .clients-section {
+                padding: 80px 60px;
+            }
+        }
+
+        .section-title {
+            color: #00D9A3;
+            font-size: 14px;
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 16px;
+            }
+        }
+
+        .clients-heading {
+            font-size: 36px;
+            font-weight: 900;
+            margin-bottom: 50px;
+            color: #1d1d1d;
+        }
+
+        @media (min-width: 768px) {
+            .clients-heading {
+                font-size: 48px;
+                margin-bottom: 60px;
+            }
+        }
+
+        .clients-slider {
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+
+        .clients-track {
+            display: flex;
+            width: max-content;
+            animation: scrollLeft 12s linear infinite;
+        }
+
+        .clients-track.reverse {
+            animation: scrollRight 14s linear infinite;
+        }
+
+        .client-logo {
+            min-width: 120px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 20px;
+            opacity: 0.7;
+            filter: grayscale(100%);
+            font-size: 18px;
+            font-weight: 700;
+            color: #333;
+            transition: opacity 0.3s ease, transform 0.3s ease, filter 0.3s ease;
+        }
+
+        @media (min-width: 768px) {
+            .client-logo {
+                min-width: 180px;
+                height: 80px;
+                margin: 0 30px;
+                font-size: 20px;
+            }
+        }
+
+        .client-logo:hover {
+            opacity: 1;
+            filter: grayscale(0%);
+            transform: scale(1.05);
+        }
+
+        @keyframes scrollLeft {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        @keyframes scrollRight {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
+
+        /* Success Stories Section */
+        .success-stories {
+            background: #0a1f1f;
+            padding: 60px 20px;
+            text-align: center;
+            color: #fff;
+        }
+
+        @media (min-width: 768px) {
+            .success-stories {
+                padding: 80px 60px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .success-stories {
+                padding: 100px 60px;
+            }
+        }
+
+        .success-stories .container {
+            max-width: 1400px;
+        }
+
+        .section-heading {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .section-heading {
+                font-size: 40px;
+            }
+        }
+
+        .section-subtext {
+            font-size: 16px;
+            color: rgba(255,255,255,0.7);
+            max-width: 750px;
+            margin: 0 auto 40px auto;
+            line-height: 1.6;
+        }
+
+        @media (min-width: 768px) {
+            .section-subtext {
+                font-size: 18px;
+                margin-bottom: 50px;
+            }
+        }
+
+        .stories-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .stories-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .stories-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .story-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            overflow: hidden;
+            text-align: left;
+            transition: all 0.35s ease;
+            cursor: pointer;
+        }
+
+        .story-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.35);
+        }
+
+        .story-image {
+            height: 180px;
+            overflow: hidden;
+        }
+
+        @media (min-width: 768px) {
+            .story-image {
+                height: 220px;
+            }
+        }
+
+        .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .story-card:hover .story-image img {
+            transform: scale(1.08);
+        }
+
+        .story-content {
+            padding: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .story-content {
+                padding: 25px;
+            }
+        }
+
+        .story-tag {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 20px;
+            background: rgba(0,217,163,0.15);
+            color: #00D9A3;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        @media (min-width: 768px) {
+            .story-tag {
+                font-size: 13px;
+            }
+        }
+
+        .story-content h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        @media (min-width: 768px) {
+            .story-content h3 {
+                font-size: 20px;
+            }
+        }
+
+        .story-content p {
+            font-size: 14px;
+            color: rgba(255,255,255,0.75);
+            line-height: 1.6;
+        }
+
+        @media (min-width: 768px) {
+            .story-content p {
+                font-size: 15px;
+            }
+        }
+
+        /* Services Section */
+        .services-section {
+            background: #ffffff;
+            padding: 60px 20px;
+            color: #333;
+        }
+
+        @media (min-width: 768px) {
+            .services-section {
+                padding: 80px 60px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .services-section {
+                padding: 100px 60px;
+            }
+        }
+
+        .services-section .container {
+            max-width: 1400px;
+        }
+
+        .services-section .section-title {
+            color: #00D9A3;
+            text-align: center;
+        }
+
+        .services-section .section-heading {
+            text-align: center;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+
+        .services-section .section-subtext {
+            text-align: center;
+            color: #666;
+        }
+
+        .services-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        @media (min-width: 1024px) {
+            .services-layout {
+                grid-template-columns: 300px 1fr;
+                gap: 60px;
+            }
+        }
+
+        .services-tabs {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .service-tab {
+            padding: 16px 24px;
+            border-radius: 50px;
+            background: transparent;
+            border: none;
+            text-align: left;
+            font-size: 16px;
+            font-weight: 500;
+            color: #888;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .service-tab:hover {
+            color: #333;
+        }
+
+        .service-tab.active {
+            background: #d4f5f0;
+            color: #00D9A3;
+            font-weight: 600;
+        }
+
+        .service-content {
+            background: #f8f9fa;
+            border-radius: 20px;
+            padding: 40px 30px;
+            min-height: 400px;
+        }
+
+        @media (min-width: 768px) {
+            .service-content {
+                padding: 60px 50px;
+                min-height: 500px;
+            }
+        }
+
+        .service-content h3 {
+            font-size: 28px;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        @media (min-width: 768px) {
+            .service-content h3 {
+                font-size: 36px;
+            }
+        }
+
+        .service-content p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #666;
+            margin-bottom: 40px;
+            max-width: 700px;
+        }
+
+        @media (min-width: 768px) {
+            .service-content p {
+                font-size: 17px;
+            }
+        }
+
+        .service-illustration {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .service-illustration img {
+            max-width: 100%;
+            height: auto;
+            max-height: 350px;
+        }
+
+        /* Team Section */
+        .our-team {
+            background: #ffffff;
+            padding: 60px 20px;
+            text-align: center;
+            color: #222;
+        }
+
+        @media (min-width: 768px) {
+            .our-team {
+                padding: 80px 60px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .our-team {
+                padding: 100px 60px;
+            }
+        }
+
+        .our-team .container {
+            max-width: 1400px;
+        }
+
+        .team-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        @media (min-width: 768px) {
+            .team-grid {
+                gap: 40px;
+            }
+        }
+
+        .team-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            max-width: 260px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        @media (min-width: 768px) {
+            .team-card {
+                padding: 25px;
+            }
+        }
+
+        .team-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .team-photo {
+            width: 100%;
+            height: 240px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        @media (min-width: 768px) {
+            .team-photo {
+                height: 280px;
+                margin-bottom: 20px;
+            }
+        }
+
+        .team-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .team-card:hover .team-photo img {
+            transform: scale(1.05);
+        }
+
+        .team-card h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #111;
+        }
+
+        @media (min-width: 768px) {
+            .team-card h3 {
+                font-size: 20px;
+            }
+        }
+
+        .team-card .role {
+            font-size: 14px;
+            color: #666;
+            font-weight: 400;
+        }
+
+        @media (min-width: 768px) {
+            .team-card .role {
+                font-size: 15px;
+            }
+        }
+
+        /* Footer */
+        .footer-dark {
+            background: #111;
+            color: #ddd;
+            padding: 40px 20px 30px;
+        }
+
+        @media (min-width: 768px) {
+            .footer-dark {
+                padding: 50px 60px 30px;
+            }
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .footer-container {
+                flex-direction: row;
+                gap: 40px;
+            }
+        }
+
+        .footer-brand h2 {
+            color: #00D9A3;
+            font-size: 22px;
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        @media (min-width: 768px) {
+            .footer-brand h2 {
+                font-size: 26px;
+            }
+        }
+
+        .footer-brand p {
+            font-size: 14px;
+            color: #aaa;
+            margin: 0;
+        }
+
+        .footer-links h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        @media (min-width: 768px) {
+            .footer-links h3 {
+                font-size: 18px;
+            }
+        }
+
+        .footer-links ul {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        @media (min-width: 768px) {
+            .footer-links ul {
+                flex-direction: row;
+                gap: 20px;
+            }
+        }
+
+        .footer-links ul li a {
+            text-decoration: none;
+            color: #ccc;
+            font-size: 14px;
+            transition: all 0.3s;
+            position: relative;
+            display: inline-block;
+        }
+
+        @media (min-width: 768px) {
+            .footer-links ul li a {
+                font-size: 15px;
+            }
+        }
+
+        .footer-links ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            left: 0;
+            bottom: -3px;
+            background: #00D9A3;
+            transition: width 0.3s;
+        }
+
+        .footer-links ul li a:hover {
+            color: #00D9A3;
+        }
+
+        .footer-links ul li a:hover::after {
+            width: 100%;
+        }
+
+        .footer-social h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        @media (min-width: 768px) {
+            .footer-social h3 {
+                font-size: 18px;
+            }
+        }
+
+        .footer-social .social-icons a {
+            color: #ccc;
+            font-size: 18px;
+            margin-right: 18px;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        @media (min-width: 768px) {
+            .footer-social .social-icons a {
+                font-size: 20px;
+            }
+        }
+
+        .footer-social .social-icons a:hover {
+            color: #00D9A3;
+            transform: scale(1.1);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 25px;
+            color: #777;
+        }
+
+        @media (min-width: 768px) {
+            .footer-bottom {
+                margin-top: 30px;
+            }
+        }
+
+        .footer-bottom hr {
+            border-color: #333;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
-       <!-- Navigation -->
-<nav id="navbar">
-    <div class="logo">ECOM NEXUS</div>
-    <div class="nav-links">
-        <a href="#home" class="active">Home</a>
-        <a href="#services">Services</a>
-        <a href="#about">About</a>
-        <a href="#work">Work</a>
-        <a href="#team">Team</a>
-    </div>
-</nav>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">ECOM NEXUS</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#about">About</a>
+                <a href="#work">Work</a>
+                <a href="#team">Team</a>
+            </div>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#home" onclick="closeMobileMenu()">Home</a>
+            <a href="#services" onclick="closeMobileMenu()">Services</a>
+            <a href="#about" onclick="closeMobileMenu()">About</a>
+            <a href="#work" onclick="closeMobileMenu()">Work</a>
+            <a href="#team" onclick="closeMobileMenu()">Team</a>
+        </div>
+    </nav>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
@@ -914,261 +1298,306 @@ nav.scrolled .nav-links a {
 
     <!-- About Section -->
     <section class="about-section" id="about">
-        <h1 class="about-heading">Premium Marketing Excellence</h1>
-        <p class="about-subheading">We are a boutique digital marketing agency focused on delivering exceptional results for marketplace sellers and e-commerce brands. Our data-driven approach and deep expertise in Amazon PPC and marketplace optimization have helped hundreds of brands scale their online presence and achieve sustainable growth.<br>✨ This is the ECOM NEXUS alchemy.</p>
-        <div class="about-buttons">
-            <a href="#contact" class="btn-primary">Get in Touch</a>
-            <a href="#work" class="btn-secondary">Our Works</a>
-        </div>
+        <div class="container">
+            <h1 class="about-heading">Premium Marketing Excellence</h1>
+            <p class="about-subheading">Data-driven marketplace marketing that delivers measurable results and sustainable growth through proven strategies and cutting-edge technology.</p>
+            <div class="about-buttons">
+                <a href="#contact" class="btn-green">Get Started Today</a>
+                <a href="#about" class="btn-outline-green">Learn More</a>
+            </div>
 
-        <div class="about-dreamscape">
-            <h2 class="dreamscape-title">OUR DREAMSCAPE</h3>
-            <h2 class="dreamscape-heading">We turn marketing data into your brand's<br>secret weapon </h2>
-            <p class="dreamscape-vision">Vision 2025: <strong>India's No.1 Digital E-Com Marketing</strong> Company</p>
+            <div class="about-dreamscape">
+                <div class="dreamscape-title">DREAMSCAPE</div>
+                <h2 class="dreamscape-heading">Building Tomorrow's Marketing Success</h2>
+                <p class="dreamscape-vision">Empowering brands with innovative marketplace strategies that transform vision into reality</p>
 
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-number">500+</div>
-                    <div class="stat-label">Campaigns Managed</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">85%</div>
-                    <div class="stat-label">Average ROI Increase</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">50M+</div>
-                    <div class="stat-label">Revenue Generated</div>
+                <div class="stats-grid">
+                    <div>
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Successful Campaigns</div>
+                    </div>
+                    <div>
+                        <div class="stat-number">$50M+</div>
+                        <div class="stat-label">Revenue Generated</div>
+                    </div>
+                    <div>
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label">Client Satisfaction</div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Clients Section -->
-   <section class="clients-section">
-    <h3 class="section-title">OUR CLIENTS</h3>
-    <h2 class="clients-heading">Prestigious Partners</h2>
+    <section class="clients-section">
+        <div class="container">
+            <h3 class="section-title">TRUSTED BY</h3>
+            <h2 class="clients-heading">Top Global Brands</h2>
 
-    <!-- Row 1 -->
-    <div class="clients-slider">
-        <div class="clients-track">
-            <div class="client-logo">Amazon</div>
-            <div class="client-logo">Flipkart</div>
-            <div class="client-logo">Myntra</div>
-            <div class="client-logo">Meesho</div>
-            <div class="client-logo">Nykaa</div>
-            <div class="client-logo">Ajio</div>
-            <div class="client-logo">Shopify</div>
-            <div class="client-logo">BigBasket</div>
-            <!-- Duplicate for seamless loop -->
-            <div class="client-logo">Amazon</div>
-            <div class="client-logo">Flipkart</div>
+            <!-- Row 1 -->
+            <div class="clients-slider">
+                <div class="clients-track">
+                    <div class="client-logo">Nike</div>
+                    <div class="client-logo">Adidas</div>
+                    <div class="client-logo">Puma</div>
+                    <div class="client-logo">Under Armour</div>
+                    <div class="client-logo">New Balance</div>
+                    <div class="client-logo">Asics</div>
+                    <div class="client-logo">Reebok</div>
+                    <div class="client-logo">Skechers</div>
+                    <!-- Duplicate for seamless loop -->
+                    <div class="client-logo">Nike</div>
+                    <div class="client-logo">Adidas</div>
+                </div>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="clients-slider">
+                <div class="clients-track reverse">
+                    <div class="client-logo">Zara</div>
+                    <div class="client-logo">H&M</div>
+                    <div class="client-logo">Gap</div>
+                    <div class="client-logo">Forever 21</div>
+                    <div class="client-logo">Mango</div>
+                    <div class="client-logo">Reebok</div>
+                    <div class="client-logo">Levis</div>
+                    <div class="client-logo">Uniqlo</div>
+                    <!-- Duplicate -->
+                    <div class="client-logo">Zara</div>
+                    <div class="client-logo">H&M</div>
+                </div>
+            </div>
+
+            <!-- Row 3 -->
+            <div class="clients-slider">
+                <div class="clients-track">
+                    <div class="client-logo">Sony</div>
+                    <div class="client-logo">Samsung</div>
+                    <div class="client-logo">Apple</div>
+                    <div class="client-logo">Dell</div>
+                    <div class="client-logo">HP</div>
+                    <div class="client-logo">Lenovo</div>
+                    <div class="client-logo">Asus</div>
+                    <div class="client-logo">Acer</div>
+                    <!-- Duplicate -->
+                    <div class="client-logo">Sony</div>
+                    <div class="client-logo">Samsung</div>
+                </div>
+            </div>
         </div>
-    </div>
-
-    <!-- Row 2 -->
-    <div class="clients-slider">
-        <div class="clients-track reverse">
-            <div class="client-logo">Zara</div>
-            <div class="client-logo">H&M</div>
-            <div class="client-logo">Nike</div>
-            <div class="client-logo">Adidas</div>
-            <div class="client-logo">Puma</div>
-            <div class="client-logo">Reebok</div>
-            <div class="client-logo">Levis</div>
-            <div class="client-logo">Uniqlo</div>
-            <!-- Duplicate -->
-            <div class="client-logo">Zara</div>
-            <div class="client-logo">H&M</div>
-        </div>
-    </div>
-
-    <!-- Row 3 -->
-    <div class="clients-slider">
-        <div class="clients-track">
-            <div class="client-logo">Sony</div>
-            <div class="client-logo">Samsung</div>
-            <div class="client-logo">Apple</div>
-            <div class="client-logo">Dell</div>
-            <div class="client-logo">HP</div>
-            <div class="client-logo">Lenovo</div>
-            <div class="client-logo">Asus</div>
-            <div class="client-logo">Acer</div>
-            <!-- Duplicate -->
-            <div class="client-logo">Sony</div>
-            <div class="client-logo">Samsung</div>
-        </div>
-    </div>
-</section>
-
-
+    </section>
 
     <!-- Success Stories -->
-   <section class="success-stories" id="success">
-    <div class="section-container">
-    <h3 class="section-title">OUR WORK</h3>
-    <h2 class="section-heading">Success Stories</h2>
-    <p class="section-subtext">
-        Real results from our marketplace marketing campaigns — demonstrating expertise, creativity, and measurable growth.
-    </p>
+    <section class="success-stories" id="work">
+        <div class="container">
+            <h3 class="section-title">OUR WORK</h3>
+            <h2 class="section-heading">Success Stories</h2>
+            <p class="section-subtext">Real results from our marketplace marketing campaigns — demonstrating expertise, creativity, and measurable growth.</p>
 
-    <div class="stories-grid">
-        <div class="story-card">
-            <div class="story-image">
-                <img src="images/ecommerce-1.jpg" alt="Electronics Brand">
+            <div class="stories-grid">
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?w=400&h=300&fit=crop" alt="Electronics Brand">
+                    </div>
+                    <div class="story-content">
+                        <span class="story-tag">Amazon PPC</span>
+                        <h3>Electronics Brand</h3>
+                        <p>Increased sales by <strong>340%</strong> with optimized PPC campaigns, reduced ACoS by 45%, and achieved top 3 ranking in competitive categories.</p>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=300&fit=crop" alt="Fashion Retailer">
+                    </div>
+                    <div class="story-content">
+                        <span class="story-tag">Marketplace</span>
+                        <h3>Fashion Retailer</h3>
+                        <p>Scaled to <strong>$2M+ revenue</strong> across marketplaces with comprehensive listing optimization and cross-platform strategy.</p>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=400&h=300&fit=crop" alt="Health & Wellness">
+                    </div>
+                    <div class="story-content">
+                        <span class="story-tag">Digital Campaign</span>
+                        <h3>Health & Wellness</h3>
+                        <p>Reduced ACoS by 45% while increasing conversions by <strong>280%</strong> through targeted segmentation and creative optimization.</p>
+                    </div>
+                </div>
             </div>
-            <div class="story-content">
-                <span class="story-tag">Amazon PPC</span>
-                <h3>Electronics Brand</h3>
-                <p>Increased sales by <strong>340%</strong> with optimized PPC campaigns, reduced ACoS by 45%, and achieved top 3 ranking in competitive categories.</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <h3 class="section-title">E-COMMERCE</h3>
+            <h2 class="section-heading">Mastery Hub</h2>
+            <p class="section-subtext">Comprehensive marketplace solutions from planning to optimization</p>
+
+            <div class="services-layout">
+                <!-- Left Sidebar -->
+                <div class="services-tabs">
+                    <button class="service-tab active" onclick="showService(0)" data-service="0">
+                        #1 Planning
+                    </button>
+                    <button class="service-tab" onclick="showService(1)" data-service="1">
+                        #2 Store Design
+                    </button>
+                    <button class="service-tab" onclick="showService(2)" data-service="2">
+                        #3 Development & Testing
+                    </button>
+                    <button class="service-tab" onclick="showService(3)" data-service="3">
+                        #4 Analytics Setup
+                    </button>
+                    <button class="service-tab" onclick="showService(4)" data-service="4">
+                        #5 E-Commerce SEO
+                    </button>
+                    <button class="service-tab" onclick="showService(5)" data-service="5">
+                        #6 Paid Advertising
+                    </button>
+                    <button class="service-tab" onclick="showService(6)" data-service="6">
+                        #7 Store Maintenance
+                    </button>
+                </div>
+
+                <!-- Right Content Area -->
+                <div class="service-content">
+                    <div class="service-detail" id="service-0">
+                        <h3>Initial Planning</h3>
+                        <p>Let us handle the complexities of your e-commerce account setup. Our dedicated team ensures a flawless configuration on any marketplace from registration to profile optimization. Launch with confidence and start your online journey seamlessly with AKOI.</p>
+                        <div class="service-illustration">
+                            <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=400&fit=crop" alt="Planning Illustration">
+                        </div>
+                    </div>
+                    
+                    <div class="service-detail" id="service-1" style="display:none;">
+                        <h3>Store Design</h3>
+                        <p>Create stunning, conversion-optimized storefronts that captivate your customers. Our design experts craft beautiful, user-friendly interfaces that reflect your brand identity while maximizing sales potential across all devices and platforms.</p>
+                        <div class="service-illustration">
+                            <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=600&h=400&fit=crop" alt="Design Illustration">
+                        </div>
+                    </div>
+                    
+                    <div class="service-detail" id="service-2" style="display:none;">
+                        <h3>Development & Testing</h3>
+                        <p>Build robust, scalable e-commerce solutions with rigorous quality assurance. Our development team implements cutting-edge features while ensuring flawless functionality through comprehensive testing protocols and performance optimization.</p>
+                        <div class="service-illustration">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop" alt="Development Illustration">
+                        </div>
+                    </div>
+                    
+                    <div class="service-detail" id="service-3" style="display:none;">
+                        <h3>Analytics Setup</h3>
+                        <p>Implement powerful tracking and analytics systems to measure every aspect of your store's performance. Make data-driven decisions with comprehensive dashboards, conversion tracking, and customer behavior insights.</p>
+                        <div class="service-illustration">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop" alt="Analytics Illustration">
+                        </div>
+                    </div>
+                    
+                    <div class="service-detail" id="service-4" style="display:none;">
+                        <h3>E-Commerce SEO</h3>
+                        <p>Dominate search rankings with our specialized e-commerce SEO strategies. Optimize product listings, category pages, and content to drive organic traffic and increase visibility across search engines and marketplace platforms.</p>
+                        <div class="service-illustration">
+                            <img src="https://images.unsplash.com/photo-1562577309-4932fdd64cd1?w=600&h=400&fit=crop" alt="SEO Illustration">
+                        </div>
+                    </div>
+                    
+                    <div class="service-detail" id="service-5" style="display:none;">
+                        <h3>Paid Advertising</h3>
+                        <p>Maximize ROI with strategic PPC campaigns across Amazon, Google, and social media platforms. Our advertising specialists create data-driven campaigns that reduce costs while scaling revenue and market share.</p>
+                        <div class="service-illustration">
+                            <img src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=600&h=400&fit=crop" alt="Advertising Illustration">
+                        </div>
+                    </div>
+                    
+                    <div class="service-detail" id="service-6" style="display:none;">
+                        <h3>Store Maintenance</h3>
+                        <p>Keep your store running smoothly with ongoing maintenance and optimization. Regular updates, security monitoring, performance enhancements, and technical support ensure your marketplace continues to deliver exceptional results.</p>
+                        <div class="service-illustration">
+                            <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=600&h=400&fit=crop" alt="Maintenance Illustration">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="our-team" id="team">
+        <div class="container">
+            <h3 class="section-title">OUR TEAM</h3>
+            <h2 class="section-heading">Marketing Experts</h2>
+            <p class="section-subtext">The specialists behind your marketplace success with years of experience in e-commerce and digital marketing.</p>
+
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-photo">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=350&fit=crop" alt="Dolly">
+                    </div>
+                    <h3>Dolly</h3>
+                    <p class="role">Managing Director</p>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-photo">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=300&h=350&fit=crop" alt="Sumit Kundra">
+                    </div>
+                    <h3>Sumit Kundra</h3>
+                    <p class="role">CEO & Co-Founder</p>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-photo">
+                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300&h=350&fit=crop" alt="Punya Pratap">
+                    </div>
+                    <h3>Punya Pratap</h3>
+                    <p class="role">Ads Manager</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-dark">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h2>ECOM NEXUS</h2>
+                <p>© 2025 All rights reserved.</p>
+            </div>
+
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#work">Work</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-social">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#">F</a>
+                    <a href="#">L</a>
+                    <a href="#">T</a>
+                    <a href="#">I</a>
+                </div>
             </div>
         </div>
 
-        <div class="story-card">
-            <div class="story-image">
-                <img src="images/ecommerce-2.jpg" alt="Fashion Retailer">
-            </div>
-            <div class="story-content">
-                <span class="story-tag">Marketplace</span>
-                <h3>Fashion Retailer</h3>
-                <p>Scaled to <strong>$2M+ revenue</strong> across marketplaces with comprehensive listing optimization and cross-platform strategy.</p>
-            </div>
+        <div class="footer-bottom">
+            <hr>
+            <p>Designed & Built by ECOM NEXUS Team</p>
         </div>
-
-        <div class="story-card">
-            <div class="story-image">
-                <img src="images/marketing-1.jpg" alt="Health & Wellness">
-            </div>
-            <div class="story-content">
-                <span class="story-tag">Digital Campaign</span>
-                <h3>Health & Wellness</h3>
-                <p>Reduced ACoS by 45% while increasing conversions by <strong>280%</strong> through targeted segmentation and creative optimization.</p>
-            </div>
-        </div>
-    </div>
-    </div>
-</section>
-
-
-   <!-- Services Section -->
-<section class="services-section" id="services">
-    <div class="section-container">
-    <h3 class="section-title">OUR EXPERTISE</h3>
-    <h2 class="section-heading">Premium Marketing Services</h2>
-    <p style="max-width:800px; margin: 0 auto 50px auto; font-size:18px; color:rgba(255,255,255,0.85); line-height:1.6; text-align:center;">
-        Data-driven strategies that maximize your marketplace presence and drive sustainable growth 
-        with proven methodologies and cutting-edge technology.
-    </p>
-    
-    <div class="services-grid">
-        <div class="service-card">
-            <div class="service-icon">📈</div>
-            <h3>Amazon PPC Management</h3>
-            <p>Strategic PPC campaigns that optimize for conversions, reduce ACoS, and maximize your Amazon ROI with advanced bid management and keyword optimization.</p>
-            <div class="service-arrow">↗</div>
-        </div>
-        
-        <div class="service-card">
-            <div class="service-icon">🛒</div>
-            <h3>Marketplace Optimization</h3>
-            <p>Complete marketplace listing optimization for Amazon, Walmart, and other platforms with A/B testing and conversion rate optimization.</p>
-            <div class="service-arrow">↗</div>
-        </div>
-        
-        <div class="service-card">
-            <div class="service-icon">🎯</div>
-            <h3>Campaign Strategy</h3>
-            <p>Comprehensive digital marketing campaigns across all channels for maximum brand visibility and customer acquisition with ROI tracking.</p>
-            <div class="service-arrow">↗</div>
-        </div>
-    </div>
-    </div>
-</section>
-
-<section class="our-team" id="team">
-
-
-  <div class="section-container">
-    <h3 class="section-title">OUR TEAM</h3>
-    <h2 class="section-heading">Marketing Experts</h2>
-    <p class="section-subtext">
-      The specialists behind your marketplace success with years of experience in e-commerce and digital marketing.
-    </p>
-
-    <div class="team-grid">
-      <!-- Member 1 -->
-      <div class="team-card">
-        <div class="team-photo">
-          <img src="images/dolly.jpg" alt="Dolly">
-        </div>
-        <h3>Dolly</h3>
-        <p class="role">Managing Director</p>
-      </div>
-
-      <!-- Member 2 -->
-      <div class="team-card">
-        <div class="team-photo">
-          <img src="images/Sumit.jpg" alt="Sumit Kundra">
-        </div>
-        <h3>Sumit Kundra</h3>
-        <p class="role">CEO &amp; Co-Founder</p>
-      </div>
-
-      <!-- Member 3 -->
-      <div class="team-card">
-        <div class="team-photo">
-          <img src="images/Punya.jpg" alt="Punya Pratap">
-        </div>
-        <h3>Punya Pratap</h3>
-        <p class="role">Ads Manager</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer class="footer-dark">
-  <div class="footer-container">
-
-    <!-- Brand -->
-    <div class="footer-brand">
-      <h2>ECOM NEXUS</h2>
-      <p>© 2025 All rights reserved.</p>
-    </div>
-
-    <!-- Navigation Links -->
-    <div class="footer-links">
-      <h3>Quick Links</h3>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#work">Work</a></li>
-        <li><a href="#team">Team</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-
-    <!-- Social Links -->
-    <div class="footer-social">
-      <h3>Follow Us</h3>
-      <div class="social-icons">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="footer-bottom">
-    <hr>
-    <p>Designed & Built by ECOM NEXUS Team</p>
-  </div>
-</footer>
-
-
-
-
+    </footer>
 
     <script>
         // Navbar scroll effect
@@ -1193,6 +1622,44 @@ nav.scrolled .nav-links a {
                 }
             });
         });
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.remove('active');
+        }
+
+        // Service tab switching
+        function showService(index) {
+            // Hide all service details
+            const allDetails = document.querySelectorAll('.service-detail');
+            allDetails.forEach(detail => {
+                detail.style.display = 'none';
+            });
+
+            // Remove active class from all tabs
+            const allTabs = document.querySelectorAll('.service-tab');
+            allTabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Show selected service detail
+            const selectedDetail = document.getElementById('service-' + index);
+            if (selectedDetail) {
+                selectedDetail.style.display = 'block';
+            }
+
+            // Add active class to clicked tab
+            const selectedTab = document.querySelector('.service-tab[data-service="' + index + '"]');
+            if (selectedTab) {
+                selectedTab.classList.add('active');
+            }
+        }
     </script>
 </body>
 </html>
