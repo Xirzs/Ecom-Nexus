@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ECOM NEXUS - Premium E-Commerce Marketing Agency</title>
+    <title>EcomNexus - Digital Marketing Excellence</title>
     <style>
         * {
             margin: 0;
@@ -12,566 +12,1123 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            line-height: 1.6;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             color: #333;
             overflow-x: hidden;
         }
 
-        /* Navigation */
-        nav {
-            position: fixed;
-            width: 100%;
-            top: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 15px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
+     /* Navbar */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 25px 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+nav.scrolled {
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
 
-        .logo {
-            font-size: 24px;
-            font-weight: 800;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+.logo {
+    font-size: 26px;
+    font-weight: 800;
+    color: white;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
 
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-        }
+nav.scrolled .logo {
+    color: #1a1a1a;
+}
 
-        .nav-links a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
+.nav-links {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
 
-        .nav-links a:hover {
-            color: #667eea;
-        }
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+    position: relative;
+    transition: color 0.3s ease;
+}
 
-        .cta-button {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            padding: 10px 25px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #00D9A3;
+    transition: width 0.3s ease;
+}
 
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
-        }
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.nav-links a:hover {
+    color: #00D9A3;
+}
+
+nav.scrolled .nav-links a {
+    color: #333;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    nav {
+        padding: 15px 30px;
+    }
+
+    .nav-links {
+        gap: 20px;
+    }
+}
 
         /* Hero Section */
         .hero {
-            margin-top: 70px;
-            padding: 80px 20px;
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            position: relative;
-            overflow: hidden;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 200%;
-            height: 200%;
-            top: -50%;
-            left: -50%;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
-            animation: float 20s linear infinite;
-        }
-
-        @keyframes float {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(-50%, -50%); }
-        }
-
-        .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            color: white;
-            margin-bottom: 20px;
-            font-weight: 800;
-            animation: fadeInUp 0.8s ease;
-        }
-
-        .hero-subtitle {
-            font-size: 1.3rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 30px;
-            animation: fadeInUp 1s ease;
-        }
-
-        .hero-tagline {
-            font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.8);
-            font-style: italic;
-            margin-bottom: 40px;
-            animation: fadeInUp 1.2s ease;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Stats Section */
-        .stats {
-            padding: 60px 20px;
-            background: white;
-        }
-
-        .stats-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-        }
-
-        .stat-card {
-            text-align: center;
-            padding: 30px;
-            border-radius: 15px;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 800;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
-        }
-
-        .stat-label {
-            font-size: 1.1rem;
-            color: #666;
-            font-weight: 600;
-        }
-
-        /* Services Section */
-        .services {
-            padding: 80px 20px;
-            background: #f8f9fa;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            font-weight: 800;
-            color: #333;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.2rem;
-            color: #666;
-            margin-bottom: 50px;
-        }
-
-        .services-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .service-card {
-            background: white;
-            padding: 40px 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card::before {
-            content: '';
+        .video-background {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 4px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
         }
 
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-        }
-
-        .service-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            font-size: 24px;
-            color: white;
-        }
-
-        .service-title {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            color: #333;
-            font-weight: 700;
-        }
-
-        .service-description {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        /* Platforms Section */
-        .platforms {
-            padding: 80px 20px;
-            background: white;
-        }
-
-        .platforms-grid {
-            max-width: 1000px;
-            margin: 50px auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 30px;
-            align-items: center;
-        }
-
-        .platform-logo {
-            text-align: center;
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 10px;
-            transition: transform 0.3s, background 0.3s;
-            font-weight: 600;
-            color: #666;
-        }
-
-        .platform-logo:hover {
-            transform: scale(1.1);
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-
-        /* Clients Section */
-        .clients {
-            padding: 80px 20px;
-            background: #f8f9fa;
-        }
-
-        .clients-marquee {
-            max-width: 1200px;
-            margin: 50px auto;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .clients-track {
-            display: flex;
-            gap: 50px;
-            animation: scroll 30s linear infinite;
-        }
-
-        @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        .client-logo {
-            flex-shrink: 0;
-            width: 150px;
-            height: 80px;
-            background: white;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-            color: #999;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-
-        /* CTA Section */
-        .cta-section {
-            padding: 100px 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-section::before {
-            content: '';
+        .video-overlay {
             position: absolute;
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            top: -150px;
-            right: -150px;
-        }
-
-        .cta-section::after {
-            content: '';
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            bottom: -100px;
-            left: -100px;
-        }
-
-        .cta-content {
-            position: relative;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 217, 163, 0.7) 0%, rgba(26, 58, 58, 0.8) 100%);
             z-index: 1;
         }
 
-        .cta-title {
-            font-size: 2.5rem;
+        .hero-container {
+            position: relative;
+            z-index: 2;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 60px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            width: 100%;
+        }
+
+        .hero-content {
             color: white;
-            margin-bottom: 20px;
-            font-weight: 800;
         }
 
-        .cta-text {
-            font-size: 1.2rem;
+        .hero-tag {
+            font-size: 14px;
+            letter-spacing: 3px;
             color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 30px;
+            margin-bottom: 20px;
+            font-weight: 600;
         }
 
-        .cta-button-large {
-            display: inline-block;
-            background: white;
-            color: #667eea;
-            padding: 15px 40px;
+        .hero h1 {
+            font-size: 64px;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .hero-description {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn-primary {
+            background: #1a1a1a;
+            color: white;
+            padding: 16px 36px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 1.1rem;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: all 0.3s ease;
+            display: inline-block;
         }
 
-        .cta-button-large:hover {
+        .btn-primary:hover {
+            background: #000;
             transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
-        /* Footer */
-        footer {
-            background: #2c3e50;
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
+        .btn-secondary {
+            background: white;
+            color: #1a1a1a;
+            padding: 16px 36px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            display: inline-block;
         }
 
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.9);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-            
-            .stats-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
+        .hero-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            height: 500px;
         }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+/* About Section */
+.about-section {
+    padding: 80px 40px;
+    background: linear-gradient(135deg, #d4f5f0 0%, #e8f8f5 100%);
+    text-align: center;
+}
+
+.about-heading {
+    font-size: 42px; /* reduced from 56px */
+    font-weight: 900;
+    margin-bottom: 20px;
+    color: #1a1a1a;
+    line-height: 1.2;
+}
+
+.about-subheading {
+    font-size: 20px; /* reduced from 24px */
+    color: #666;
+    margin-bottom: 40px;
+    line-height: 1.5;
+}
+
+.about-vision {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+.about-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 60px;
+}
+
+.about-dreamscape {
+    margin-top: 60px;
+}
+
+.dreamscape-title {
+    color: #00D9A3;
+    font-size: 14px; /* reduced */
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.dreamscape-heading {
+    font-size: 36px; /* reduced from 48px */
+    font-weight: 800;
+    margin-bottom: 25px;
+    color: #1a1a1a;
+    line-height: 1.3;
+}
+
+.dreamscape-vision {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+/* Stats Grid */
+.stats-grid {
+    display: flex;
+    justify-content: center; /* centers the grid */
+    gap: 40px;
+    flex-wrap: wrap; /* allows wrapping on smaller screens */
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 15px;
+    flex: 1 1 200px; /* makes them responsive */
+}
+
+.stat-number {
+    font-size: 42px; /* reduced from 64px */
+    font-weight: 900;
+    margin-bottom: 8px;
+    background: linear-gradient(135deg, #00D9A3 0%, #1a3a3a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.stat-label {
+    font-size: 16px; /* reduced */
+    color: #666;
+    font-weight: 600;
+}
+
+
+        /* Clients Section */
+       .clients-section {
+    padding: 80px 60px;
+    background: #f8f9fa;
+    text-align: center;
+}
+
+.section-title {
+    color: #00D9A3;
+    font-size: 16px;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.clients-heading {
+    font-size: 48px;
+    font-weight: 900;
+    margin-bottom: 60px;
+    color: rgb(29, 29, 29);
+}
+
+/* Each row container */
+.clients-slider {
+    overflow: hidden;
+    margin-bottom: 40px;
+}
+
+/* Track that scrolls */
+.clients-track {
+    display: flex;
+    width: max-content;
+    animation: scrollLeft 12s linear infinite;
+}
+
+.clients-track.reverse {
+    animation: scrollRight 14s linear infinite;
+}
+
+.client-logo {
+    min-width: 180px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 30px;
+    opacity: 0.7;
+    filter: grayscale(100%);
+    font-size: 20px;
+    font-weight: 700;
+    color: #333;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.client-logo:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+    transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes scrollLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+@keyframes scrollRight {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+}
+
+
+       /* Success Stories Section */
+.success-stories {
+    background: #0a1f1f;
+    padding: 100px 20px;
+    text-align: center;
+    color: #fff;
+}
+
+.success-stories .section-title {
+    color: #00D9A3;
+    font-size: 14px;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.success-stories .section-heading {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.success-stories .section-subtext {
+    font-size: 18px;
+    color: rgba(255,255,255,0.7);
+    max-width: 750px;
+    margin: 0 auto 50px auto;
+    line-height: 1.6;
+}
+
+/* Grid Layout */
+.stories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+/* Story Card */
+.story-card {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    overflow: hidden;
+    text-align: left;
+    transition: all 0.35s ease;
+    cursor: pointer;
+}
+
+.story-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.35);
+}
+
+/* Story Image */
+.story-image {
+    height: 220px;
+    overflow: hidden;
+}
+
+.story-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.story-card:hover .story-image img {
+    transform: scale(1.08);
+}
+
+/* Story Content */
+.story-content {
+    padding: 25px;
+}
+
+.story-tag {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    background: rgba(0,217,163,0.15);
+    color: #00D9A3;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.story-content h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.story-content p {
+    font-size: 15px;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.6;
+}
+    /* Shared container for all sections */
+.section-container {
+    max-width: 1100px;  /* keeps cards nicely centered */
+    margin: 0 auto;     /* centers in page */
+    padding: 0 20px;    /* small padding on sides for mobile */
+}
+
+     /* Services Section */
+.services-section {
+    background: #0a1f1f;
+    padding: 100px 20px;
+    text-align: center;
+    color: #fff;
+}
+
+.services-section .section-title {
+    color: #00D9A3;
+    font-size: 14px;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.services-section .section-heading {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #fff;
+    line-height: 1.2;
+}
+
+.services-section p {
+    font-size: 18px;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.6;
+    max-width: 750px;
+    margin: 0 auto 50px auto;
+}
+
+/* Grid Layout */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 60px;
+}
+
+/* Service Card */
+.service-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 40px 30px;
+    text-align: left;
+    transition: all 0.35s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    border-color: #00D9A3;
+    background: rgba(0, 217, 163, 0.05);
+}
+
+/* Smooth reveal animation on load */
+.service-card {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+.service-card:nth-child(2) { animation-delay: 0.2s; }
+.service-card:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Service Icon */
+.service-icon {
+    font-size: 34px;
+    margin-bottom: 18px;
+    color: #00D9A3;
+}
+
+/* Service Title */
+.service-card h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+    color: #fff;
+    font-weight: 600;
+}
+
+/* Service Description */
+.service-card p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.7);
+}
+
+/* Arrow (top-right) */
+.service-arrow {
+    position: absolute;
+    top: 22px;
+    right: 22px;
+    font-size: 18px;
+    color: rgba(255,255,255,0.4);
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.service-card:hover .service-arrow {
+    color: #00D9A3;
+    transform: translateX(4px);
+}
+
+    /* Our Team Section */
+    /* Our Team Section */
+.our-team {
+    background: #ffffff; /* White background */
+    padding: 100px 20px;
+    text-align: center;
+    color: #222;
+}
+
+.our-team .section-title {
+    color: #00D9A3;
+    font-size: 14px;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.our-team .section-heading {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #111;
+}
+
+.our-team .section-subtext {
+    font-size: 17px;
+    color: #555;
+    max-width: 750px;
+    margin: 0 auto 60px auto;
+    line-height: 1.6;
+}
+
+/* Grid */
+.team-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+/* Card */
+.team-card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    max-width: 260px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Photo */
+.team-photo {
+    width: 100%;
+    height: 280px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.team-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.team-card:hover .team-photo img {
+    transform: scale(1.05);
+}
+
+/* Name */
+.team-card h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #111;
+}
+
+/* Role */
+.team-card .role {
+    font-size: 15px;
+    color: #666;
+    font-weight: 400;
+}
+
+    .footer-dark {
+  background: #111;
+  color: #ddd;
+  padding: 50px 20px 30px;
+  font-family: 'Inter', sans-serif;
+}
+
+.footer-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+/* Brand */
+.footer-brand h2 {
+  color: #00D9A3;
+  font-size: 26px;
+  margin-bottom: 10px;
+  font-weight: 800;
+}
+
+.footer-brand p {
+  font-size: 14px;
+  color: #aaa;
+  margin: 0;
+}
+
+/* Links */
+.footer-links h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.footer-links ul {
+  display: flex;
+  flex-direction: row; /* horizontal layout */
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+
+.footer-links ul li a {
+  text-decoration: none;
+  color: #ccc;
+  font-size: 15px;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.footer-links ul li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: -3px;
+  background: #00D9A3;
+  transition: width 0.3s;
+}
+
+.footer-links ul li a:hover::after {
+  width: 100%;
+  color: #00D9A3;
+}
+
+/* Social */
+.footer-social h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.footer-social .social-icons a {
+  color: #ccc;
+  font-size: 20px;
+  margin-right: 18px;
+  transition: all 0.3s;
+}
+
+.footer-social .social-icons a:hover {
+  color: #00D9A3;
+  transform: scale(1.1);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  color: #777;
+}
+
+.footer-bottom hr {
+  border-color: #333;
+  margin-bottom: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-links ul {
+    flex-direction: column; /* vertical on small screens */
+    gap: 10px;
+    text-align: center;
+  }
+}
+
+
+
+
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <div class="logo">ECOM NEXUS</div>
-            <ul class="nav-links">
-                <li><a href="#services">Services</a></li>
-                <li><a href="#platforms">Platforms</a></li>
-                <li><a href="#clients">Clients</a></li>
-                <li><a href="#about">About</a></li>
-            </ul>
-            <a href="#contact" class="cta-button">Get Started</a>
-        </div>
-    </nav>
+       <!-- Navigation -->
+<nav id="navbar">
+    <div class="logo">ECOM NEXUS</div>
+    <div class="nav-links">
+        <a href="#home" class="active">Home</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#team">Team</a>
+    </div>
+</nav>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Premium E-Commerce Marketing Excellence</h1>
-            <p class="hero-subtitle">Data-driven strategies. Marketplace mastery. Exponential growth.</p>
-            <p class="hero-tagline">✨ This is the ECOM NEXUS advantage</p>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="stats-container">
-            <div class="stat-card">
-                <div class="stat-number">500+</div>
-                <div class="stat-label">Campaigns Managed</div>
+    <section class="hero" id="home">
+        <video class="video-background" autoplay muted loop playsinline>
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-urban-architecture-aerial-view-1581-large.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-tag">PREMIUM MARKETING AGENCY</div>
+                <h1>We Scale Marketplace Listings & Campaigns</h1>
+                <p class="hero-description">Premium digital marketing agency specializing in Amazon PPC, marketplace optimization, and e-commerce growth strategies that drive measurable ROI and sustainable business growth.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn-primary">Start Your Campaign</a>
+                    <a href="#work" class="btn-secondary">View Our Work</a>
+                </div>
             </div>
-            <div class="stat-card">
-                <div class="stat-number">340%</div>
-                <div class="stat-label">Average ROI Increase</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">$50M+</div>
-                <div class="stat-label">Revenue Generated</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">200+</div>
-                <div class="stat-label">Happy Clients</div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&h=600&fit=crop" alt="Team working">
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <h2 class="section-title">Our Services</h2>
-        <p class="section-subtitle">Comprehensive solutions for marketplace domination</p>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">📊</div>
-                <h3 class="service-title">Amazon PPC Management</h3>
-                <p class="service-description">Strategic PPC campaigns with advanced bid management, keyword optimization, and ACoS reduction strategies for maximum ROI.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🚀</div>
-                <h3 class="service-title">Marketplace Optimization</h3>
-                <p class="service-description">Complete listing optimization across Amazon, Walmart, and major platforms with A/B testing and conversion optimization.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">📈</div>
-                <h3 class="service-title">E-Commerce Growth</h3>
-                <p class="service-description">Data-driven growth strategies that scale your business with proven methodologies and cutting-edge technology.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🎯</div>
-                <h3 class="service-title">Brand Strategy</h3>
-                <p class="service-description">Build and protect your brand with registry management, enhanced content, and strategic positioning.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🌍</div>
-                <h3 class="service-title">Global Expansion</h3>
-                <p class="service-description">International marketplace expansion with cross-border selling strategies and global optimization.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">💡</div>
-                <h3 class="service-title">Digital Marketing</h3>
-                <p class="service-description">Comprehensive multi-channel campaigns for maximum brand visibility and customer acquisition.</p>
-            </div>
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <h1 class="about-heading">Premium Marketing Excellence</h1>
+        <p class="about-subheading">We are a boutique digital marketing agency focused on delivering exceptional results for marketplace sellers and e-commerce brands. Our data-driven approach and deep expertise in Amazon PPC and marketplace optimization have helped hundreds of brands scale their online presence and achieve sustainable growth.<br>✨ This is the ECOM NEXUS alchemy.</p>
+        <div class="about-buttons">
+            <a href="#contact" class="btn-primary">Get in Touch</a>
+            <a href="#work" class="btn-secondary">Our Works</a>
         </div>
-    </section>
 
-    <!-- Platforms Section -->
-    <section class="platforms" id="platforms">
-        <h2 class="section-title">Platforms We Master</h2>
-        <p class="section-subtitle">Expertise across all major marketplaces</p>
-        <div class="platforms-grid">
-            <div class="platform-logo">Amazon</div>
-            <div class="platform-logo">Walmart</div>
-            <div class="platform-logo">eBay</div>
-            <div class="platform-logo">Flipkart</div>
-            <div class="platform-logo">Etsy</div>
-            <div class="platform-logo">Shopify</div>
-            <div class="platform-logo">Target</div>
-            <div class="platform-logo">Wayfair</div>
+        <div class="about-dreamscape">
+            <h3 class="dreamscape-title">OUR DREAMSCAPE</h3>
+            <h2 class="dreamscape-heading">We turn marketing data 🧑‍💼 into your brand's<br>secret weapon 🚀</h2>
+            <p class="dreamscape-vision">Vision 2025: <strong>India's No.1 Digital E-Com Marketing</strong> Company</p>
+
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Campaigns Managed</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">85%</div>
+                    <div class="stat-label">Average ROI Increase</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">50M+</div>
+                    <div class="stat-label">Revenue Generated</div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Clients Section -->
-    <section class="clients" id="clients">
-        <h2 class="section-title">Trusted Partners</h2>
-        <p class="section-subtitle">Join hundreds of successful brands</p>
-        <div class="clients-marquee">
-            <div class="clients-track">
-                <div class="client-logo">TechBrand</div>
-                <div class="client-logo">FashionCo</div>
-                <div class="client-logo">HomeGoods</div>
-                <div class="client-logo">SportGear</div>
-                <div class="client-logo">BeautyPlus</div>
-                <div class="client-logo">ElectroMax</div>
-                <div class="client-logo">TechBrand</div>
-                <div class="client-logo">FashionCo</div>
-                <div class="client-logo">HomeGoods</div>
-                <div class="client-logo">SportGear</div>
-                <div class="client-logo">BeautyPlus</div>
-                <div class="client-logo">ElectroMax</div>
+   <section class="clients-section">
+    <h3 class="section-title">OUR CLIENTS</h3>
+    <h2 class="clients-heading">Prestigious Partners</h2>
+
+    <!-- Row 1 -->
+    <div class="clients-slider">
+        <div class="clients-track">
+            <div class="client-logo">Amazon</div>
+            <div class="client-logo">Flipkart</div>
+            <div class="client-logo">Myntra</div>
+            <div class="client-logo">Meesho</div>
+            <div class="client-logo">Nykaa</div>
+            <div class="client-logo">Ajio</div>
+            <div class="client-logo">Shopify</div>
+            <div class="client-logo">BigBasket</div>
+            <!-- Duplicate for seamless loop -->
+            <div class="client-logo">Amazon</div>
+            <div class="client-logo">Flipkart</div>
+        </div>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="clients-slider">
+        <div class="clients-track reverse">
+            <div class="client-logo">Zara</div>
+            <div class="client-logo">H&M</div>
+            <div class="client-logo">Nike</div>
+            <div class="client-logo">Adidas</div>
+            <div class="client-logo">Puma</div>
+            <div class="client-logo">Reebok</div>
+            <div class="client-logo">Levis</div>
+            <div class="client-logo">Uniqlo</div>
+            <!-- Duplicate -->
+            <div class="client-logo">Zara</div>
+            <div class="client-logo">H&M</div>
+        </div>
+    </div>
+
+    <!-- Row 3 -->
+    <div class="clients-slider">
+        <div class="clients-track">
+            <div class="client-logo">Sony</div>
+            <div class="client-logo">Samsung</div>
+            <div class="client-logo">Apple</div>
+            <div class="client-logo">Dell</div>
+            <div class="client-logo">HP</div>
+            <div class="client-logo">Lenovo</div>
+            <div class="client-logo">Asus</div>
+            <div class="client-logo">Acer</div>
+            <!-- Duplicate -->
+            <div class="client-logo">Sony</div>
+            <div class="client-logo">Samsung</div>
+        </div>
+    </div>
+</section>
+
+
+
+    <!-- Success Stories -->
+   <section class="success-stories" id="success">
+    <div class="section-container">
+    <h3 class="section-title">OUR WORK</h3>
+    <h2 class="section-heading">Success Stories</h2>
+    <p class="section-subtext">
+        Real results from our marketplace marketing campaigns — demonstrating expertise, creativity, and measurable growth.
+    </p>
+
+    <div class="stories-grid">
+        <div class="story-card">
+            <div class="story-image">
+                <img src="images/ecommerce-1.jpg" alt="Electronics Brand">
+            </div>
+            <div class="story-content">
+                <span class="story-tag">Amazon PPC</span>
+                <h3>Electronics Brand</h3>
+                <p>Increased sales by <strong>340%</strong> with optimized PPC campaigns, reduced ACoS by 45%, and achieved top 3 ranking in competitive categories.</p>
             </div>
         </div>
-    </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section" id="contact">
-        <div class="cta-content">
-            <h2 class="cta-title">Ready to Scale Your E-Commerce Business?</h2>
-            <p class="cta-text">Let's transform your marketplace presence into a growth engine</p>
-            <a href="#" class="cta-button-large">Start Your Success Story</a>
+        <div class="story-card">
+            <div class="story-image">
+                <img src="images/ecommerce-2.jpg" alt="Fashion Retailer">
+            </div>
+            <div class="story-content">
+                <span class="story-tag">Marketplace</span>
+                <h3>Fashion Retailer</h3>
+                <p>Scaled to <strong>$2M+ revenue</strong> across marketplaces with comprehensive listing optimization and cross-platform strategy.</p>
+            </div>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2025 ECOM NEXUS. All rights reserved.</p>
-            <p>Premium Digital Marketing Agency | Marketplace Optimization Experts</p>
+        <div class="story-card">
+            <div class="story-image">
+                <img src="images/marketing-1.jpg" alt="Health & Wellness">
+            </div>
+            <div class="story-content">
+                <span class="story-tag">Digital Campaign</span>
+                <h3>Health & Wellness</h3>
+                <p>Reduced ACoS by 45% while increasing conversions by <strong>280%</strong> through targeted segmentation and creative optimization.</p>
+            </div>
         </div>
-    </footer>
+    </div>
+    </div>
+</section>
+
+
+   <!-- Services Section -->
+<section class="services-section" id="services">
+    <div class="section-container">
+    <h3 class="section-title">OUR EXPERTISE</h3>
+    <h2 class="section-heading">Premium Marketing Services</h2>
+    <p style="max-width:800px; margin: 0 auto 50px auto; font-size:18px; color:rgba(255,255,255,0.85); line-height:1.6; text-align:center;">
+        Data-driven strategies that maximize your marketplace presence and drive sustainable growth 
+        with proven methodologies and cutting-edge technology.
+    </p>
+    
+    <div class="services-grid">
+        <div class="service-card">
+            <div class="service-icon">📈</div>
+            <h3>Amazon PPC Management</h3>
+            <p>Strategic PPC campaigns that optimize for conversions, reduce ACoS, and maximize your Amazon ROI with advanced bid management and keyword optimization.</p>
+            <div class="service-arrow">↗</div>
+        </div>
+        
+        <div class="service-card">
+            <div class="service-icon">🛒</div>
+            <h3>Marketplace Optimization</h3>
+            <p>Complete marketplace listing optimization for Amazon, Walmart, and other platforms with A/B testing and conversion rate optimization.</p>
+            <div class="service-arrow">↗</div>
+        </div>
+        
+        <div class="service-card">
+            <div class="service-icon">🎯</div>
+            <h3>Campaign Strategy</h3>
+            <p>Comprehensive digital marketing campaigns across all channels for maximum brand visibility and customer acquisition with ROI tracking.</p>
+            <div class="service-arrow">↗</div>
+        </div>
+    </div>
+    </div>
+</section>
+
+<section class="our-team" id="team">
+
+
+  <div class="section-container">
+    <h3 class="section-title">OUR TEAM</h3>
+    <h2 class="section-heading">Marketing Experts</h2>
+    <p class="section-subtext">
+      The specialists behind your marketplace success with years of experience in e-commerce and digital marketing.
+    </p>
+
+    <div class="team-grid">
+      <!-- Member 1 -->
+      <div class="team-card">
+        <div class="team-photo">
+          <img src="images/dolly.jpg" alt="Dolly">
+        </div>
+        <h3>Dolly</h3>
+        <p class="role">Managing Director</p>
+      </div>
+
+      <!-- Member 2 -->
+      <div class="team-card">
+        <div class="team-photo">
+          <img src="images/Sumit.jpg" alt="Sumit Kundra">
+        </div>
+        <h3>Sumit Kundra</h3>
+        <p class="role">CEO &amp; Co-Founder</p>
+      </div>
+
+      <!-- Member 3 -->
+      <div class="team-card">
+        <div class="team-photo">
+          <img src="images/Punya.jpg" alt="Punya Pratap">
+        </div>
+        <h3>Punya Pratap</h3>
+        <p class="role">Ads Manager</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer-dark">
+  <div class="footer-container">
+
+    <!-- Brand -->
+    <div class="footer-brand">
+      <h2>ECOM NEXUS</h2>
+      <p>© 2025 All rights reserved.</p>
+    </div>
+
+    <!-- Navigation Links -->
+    <div class="footer-links">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Social Links -->
+    <div class="footer-social">
+      <h3>Follow Us</h3>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <hr>
+    <p>Designed & Built by ECOM NEXUS Team</p>
+  </div>
+</footer>
+
+
+
+
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
